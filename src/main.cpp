@@ -1,5 +1,10 @@
 #include "main.h"
 
+#include "drivetrain.hpp"
+
+Drivetrain drivetrain({-20, 19, -10}, {2, -4, 5}, 13);
+
+
 /**
  * A callback function for LLEMU's center button.
  *
