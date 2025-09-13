@@ -54,10 +54,16 @@ float Drivetrain::angleDiff(float angle1, float angle2)
     }
     return angle2-angle1;
 }
-// this function moves the robot 
+//this function resets encoders
+void Drivetrain::resetMotor()
+{
+    leftSide->tare_position();
+    rightSide->tare_position();
+}
 
 
 
+// this function turns the robot relative to the gyro
 void Drivetrain::turnGyroRelative(float speed, float angle, float accRate, float decRate, float startSpeed, float endSpeed, bool shouldStop, unsigned long int stoppingTime, float margin){
     // Default parameters
     startSpeed = (startSpeed == NOTHING ? defaultMinspeed : startSpeed);
