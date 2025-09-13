@@ -18,6 +18,11 @@ Drivetrain::Drivetrain(std::vector<std::int8_t>leftMotorPorts, std::vector<std::
     this->gyroSensor = new pros::Imu(gyroPort);
 }
 
+// Function to get the sign
+float Drivetrain::sgn(float num)
+{
+    return ((num > 0) ? 1 : ((num < 0) ? -1 : 0));
+}
 Drivetrain::~Drivetrain()
 {
     delete leftSide;
