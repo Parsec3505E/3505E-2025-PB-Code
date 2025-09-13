@@ -5,13 +5,13 @@
 Drivetrain::Drivetrain(std::vector<std::int8_t>leftMotorPorts, std::vector<std::int8_t> rightMotorPorts, int gyroPort)
 {
     //initialize motor groups for left side 
-    this->leftSide = new pros::MotorGroup(le ftMotorPorts);
-    this->leftSide->set_brake_mode_all(pros::E_MOTOR_BRAKE_HOLD);
+    this->leftSide = new pros::MotorGroup(leftMotorPorts);
+    this->leftSide->set_brake_mode_all(pros::E_MOTOR_BRAKE_BRAKE);
     this->leftSide->set_gearing_all(pros::E_MOTOR_GEAR_BLUE);
 
     //initialize motor groups for right side
     this->rightSide = new pros::MotorGroup(rightMotorPorts);
-    this->rightSide->set_brake_mode_all(pros::E_MOTOR_BRAKE_HOLD);
+    this->rightSide->set_brake_mode_all(pros::E_MOTOR_BRAKE_BRAKE);
     this->rightSide->set_gearing_all(pros::E_MOTOR_GEAR_BLUE);
    
     //create inertial sensor object
