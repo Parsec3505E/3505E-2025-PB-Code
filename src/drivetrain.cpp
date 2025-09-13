@@ -158,3 +158,8 @@ float Drivetrain::getGyroAngle()
 {
     return gyroSensor->get_heading();
 }
+
+float Drivetrain::sgn(num){
+   return((num > 0) ? 1: (num < 0) ? -1:0);
+}
+    
