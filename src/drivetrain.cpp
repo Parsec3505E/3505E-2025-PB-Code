@@ -133,7 +133,7 @@ void Drivetrain::turnGyroRelative(float speed, float angle, float accRate, float
 
 void Drivetrain::turnGyroAbsolute(float speed, float angle, float accRate, float decRate, float startSpeed, float endSpeed, bool shouldStop, unsigned long int stoppingTime, float margin)
 {
-    //this function just calls the Gyro relative function
+    //this function just calls the Gyro relative function but does math do determine the angle
     turnGyroRelative(speed, angleDiff(getGyroAngle(), angle), accRate, decRate, startSpeed, endSpeed, shouldStop, stoppingTime, margin);
 }
 //AUTONOMOUS FUNCTIONS
