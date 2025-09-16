@@ -38,7 +38,9 @@ public:
     };
 
 
-    const float NOTHING = 999999; 
+    enum DefaultNums {
+         NOTHING = 100000000
+    };
 
     enum motorDef 
     {
