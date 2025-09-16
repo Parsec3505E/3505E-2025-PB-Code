@@ -54,7 +54,7 @@ float Drivetrain::angleDiff(float angle1, float angle2)
     return angle2 - angle1;
 }
 // this function resets encoders
-void Drivetrain::resetMotor()
+void Drivetrain::resetMotors()
 {
     leftSide->tare_position();
     rightSide->tare_position();
