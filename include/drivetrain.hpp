@@ -12,10 +12,13 @@ public:
 
     // variables
     bool controllerReversed = false;
-    float defaultMinspeed = 50;
+
     unsigned long int defaultStoppingTime = 5000;
+
+    float defaultGyroMargin = 2.0; 
+    float deflaultMargin = 0.1;
+
     float wheelDiam = 3.25;
-    float wheelDist = 13.5;
 
     float defaultAcc = 0.8;
     float defaultDecc = 19;
@@ -24,6 +27,9 @@ public:
     float defaultGyrokP = 0.005;
     float defaultGyrokD = 0;
     float defaultMinspeed = 50;
+    float defaultMaxspeed = 600;
+
+
 
     enum MoveStates
     {
@@ -31,10 +37,16 @@ public:
         TIME
     };
 
-    enum defaultNums 
+
+    const float NOTHING = 999999; 
+
+    enum motorDef 
     {
-        NOTHING = -999999; // used for default parameters
+        RIGHT, 
+        LEFT, 
+        NONE
     };
+
 
     float leftRelativeBase = 0;
     float rightRelativeBase = 0;
@@ -55,6 +67,9 @@ public:
     float sgn(float num);
     float angleDiff(float angle1, float angle2);
     void resetMotors();
+    float min2(float num1, float num2);
+    float getRelativeIN(int side);
+    
 
     // internal classes (motor groups, sensors, etc.)
     pros::MotorGroup *leftSide;
