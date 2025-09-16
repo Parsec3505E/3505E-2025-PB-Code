@@ -318,6 +318,7 @@ void Drivetrain::moveGyro(float speed, float distance, float targetAngle, MoveSt
 
         // Gets the speed based on where the robot is
         if (state == IN)
+        {
             leftSpeed = motionProfiling(minSpeed, maxSpeed, accRate, deccRate, distance, (getRelativeIN(LEFT)+getRelativeIN(RIGHT))/2.0, pros::millis()-baseTime, true, false, margin);
         }
         else
@@ -350,6 +351,7 @@ void Drivetrain::moveGyro(float speed, float distance, float targetAngle, MoveSt
         setDriveSpeed(sgn(speed)*minSpeed, sgn(speed)*minSpeed);
     }
 }
+
 
 // MISCELLANEOUS FUNCTIONS
 
