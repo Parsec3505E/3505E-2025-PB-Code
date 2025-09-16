@@ -385,3 +385,8 @@ float Drivetrain::sgn(float num)
     return ((num > 0) ? 1 : (num < 0) ? -1
                                       : 0);
 }
+//this function finds the minimun of the 2 not the second minimum this is very misleading but don't be mislead
+float Drivetrain::min2(float num1, float num2)
+{
+    return (num1 < num2 ? num1 : num2);
+}
