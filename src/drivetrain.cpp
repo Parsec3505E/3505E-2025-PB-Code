@@ -17,11 +17,6 @@ Drivetrain::Drivetrain(std::vector<std::int8_t> leftMotorPorts, std::vector<std:
     this->gyroSensor = new pros::Imu(gyroPort);
 }
 
-// Function to get the sign
-float Drivetrain::sgn(float num)
-{
-    return ((num > 0) ? 1 : ((num < 0) ? -1 : 0));
-}
 Drivetrain::~Drivetrain()
 {
     delete leftSide;
@@ -346,9 +341,6 @@ void Drivetrain::moveGyro(float speed, float distance, float targetAngle, MoveSt
         setDriveSpeed(leftSpeed, rightSpeed);
         pros::delay(20);
     }
-
-    resetPositionRelative();
-
     if (shouldStop)
     {
         setDriveSpeed(0, 0);
@@ -368,7 +360,6 @@ void Drivetrain::setDriveSpeed(float leftSpeed, float rightSpeed)
     this->leftSide->move_velocity(leftSpeed);
     this->rightSide->move_velocity(rightSpeed);
 }
-//test
 
 // Function to set the current gyro angle of the robot
 void Drivetrain::setGyroAngle(float angle)
@@ -381,8 +372,21 @@ float Drivetrain::getGyroAngle()
     return gyroSensor->get_heading();
 }
 
-//this function finds the minimun of the 2 not the second minimum this is very misleading but don't be mislead
-float Drivetrain::min2(float num1, float num2)
+float Drivetrain::sgn(float num)
 {
-    return (num1 < num2 ? num1 : num2);
+    return ((num > 0) ? 1 : (num < 0) ? -1: 0);
+}
+
+float Drivetrain::getRelativeIN(int side)
+{
+    float ticks;
+    float gearRatio = 48.0/72.0; // gear ratio
+    if (side == LEFT){
+        ticks = leftSide->get_position(1);
+    }
+    else{
+        ticks = rightSide->get_position(1);
+    }
+    float absoluteIN = gearRatio*wheelDiam*M_PI*ticks/300.0;
+    return absoluteIN - (side == LEFT ? leftRelativeBase : rightRelativeBase);
 }
