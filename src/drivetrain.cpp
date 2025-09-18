@@ -65,7 +65,7 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
 {
     // Default parameters
     minSpeed = (minSpeed == NOTHING ? defaultMinspeed : minSpeed);
-    minSpeed = (maxSpeed == NOTHING ? defaultMaxspeed : maxSpeed);
+    maxSpeed = (maxSpeed == NOTHING ? defaultMaxspeed : maxSpeed);
     accRate = (accRate == NOTHING ? defaultGyroAcc : accRate);
     deccRate = (deccRate == NOTHING ? defaultGyroDecc : deccRate);
     stoppingTime = (stoppingTime == NOTHING ? defaultStoppingTime : stoppingTime);
@@ -73,7 +73,7 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
 
     // Changing values so they work
     maxSpeed = fabs(maxSpeed);
-    minSpeed = fabs(minSpeed)
+    minSpeed = fabs(minSpeed);
 
         // variables used in loop
         float leftSpeed;
@@ -89,7 +89,7 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
         // breaking conditions
 
         // if we take too long, break
-        if (pros::millis - time >= stoppingTime)
+        if (pros::millis() - time >= stoppingTime)
         {
             break;
         }
@@ -105,7 +105,7 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
         }
 
         // calculate left and right speeds in proportion to the angle we have turned -- note to reader understand this you must understand the motion profiling function
-        leftSpeed = motionProfiling(minSpeed, maxSpeed, accRate, deccRate, angle, angleDiff(gyroBaseAngle, getGyroAngle()), pros::millis() - baseTime, true, shouldStop, margin);
+        leftSpeed = motionProfiling(minSpeed, maxSpeed, accRate, deccRate, angle, angleDiff(gyroBaseAngle, getGyroAngle()), pros::millis() - time, true, shouldStop, margin);
         rightSpeed = -leftSpeed;
 
         setDriveSpeed(leftSpeed, rightSpeed);
@@ -349,7 +349,7 @@ void Drivetrain::moveGyro(float minSpeed, float maxSpeed, float distance, float 
     }
     else
     {
-        setDriveSpeed(*minSpeed, minSpeed);
+        setDriveSpeed(minSpeed, minSpeed);
     }
 }
 
