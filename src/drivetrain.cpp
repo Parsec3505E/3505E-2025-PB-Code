@@ -61,7 +61,7 @@ void Drivetrain::resetMotors()
 }
 
 // this function turns the robot relative to the gyro
-void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, float accRate, float deccRate, bool shouldStop, unsigned long int stoppingTime, float margin)
+void Drivetrain::turnGyroRelative(float angle, bool shouldStop, float minSpeed, float maxSpeed, float accRate, float deccRate, unsigned long int stoppingTime, float margin)
 {
     // Default parameters
     minSpeed = (minSpeed == NOTHING ? defaultMinspeed : minSpeed);
@@ -125,7 +125,7 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
     }
 }
 
-void Drivetrain::turnGyroAbsolute(float minSpeed, float maxSpeed, float angle, float accRate, float decRate, bool shouldStop, unsigned long int stoppingTime, float margin)
+void Drivetrain::turnGyroAbsolute(float angle, bool shouldStop, float minSpeed, float maxSpeed, float accRate, float decRate, unsigned long int stoppingTime, float margin)
 {
     // this function just calls the Gyro relative function
     turnGyroRelative(minSpeed, maxSpeed, angleDiff(getGyroAngle(), angle), accRate, decRate, shouldStop, stoppingTime, margin);
@@ -265,7 +265,7 @@ float Drivetrain::motionProfiling(float minSpeed, float maxSpeed, float accRate,
 }
 
 // Function to move with the gyro to straighten the robot
-void Drivetrain::moveGyro(float minSpeed, float maxSpeed, float distance, float targetAngle, MoveStates state, bool shouldStop, float accRate, float deccRate, float kP, float kD, unsigned long int stoppingTime)
+void Drivetrain::moveGyro(float distance, float targetAngle, MoveStates state, bool shouldStop, float minSpeed, float maxSpeed, float accRate, float deccRate, float kP, float kD, unsigned long int stoppingTime)
 {
     // Default parameters if applicable
     float margin = 0;
