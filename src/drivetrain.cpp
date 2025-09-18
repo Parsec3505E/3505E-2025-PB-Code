@@ -348,7 +348,7 @@ void Drivetrain::moveGyro(float distance, float targetAngle, MoveStates state, f
     }
     else
     {
-        setDriveSpeed(sgn(speed)*minSpeed, sgn(speed)*minSpeed);
+        setDriveSpeed(*minSpeed, minSpeed);
     }
 }
 
