@@ -264,7 +264,7 @@ float Drivetrain::motionProfiling(float minSpeed, float maxSpeed, float accRate,
 }
 
 // Function to move with the gyro to straighten the robot
-void Drivetrain::moveGyro(float speed, float distance, float targetAngle, MoveStates state, float minSpeed, float maxSpeed, bool shouldStop, float accRate, float deccRate, float kP, float kD, unsigned long int stoppingTime)
+void Drivetrain::moveGyro(float distance, float targetAngle, MoveStates state, float minSpeed, float maxSpeed, bool shouldStop, float accRate, float deccRate, float kP, float kD, unsigned long int stoppingTime)
 {
     // Default parameters if applicable
     float margin = 0;
