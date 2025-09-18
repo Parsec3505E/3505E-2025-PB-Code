@@ -143,7 +143,7 @@ float Drivetrain::motionProfiling(float minSpeed, float maxSpeed, float accRate,
     // Makes sure all the variables are valid
     minSpeed = fabs(minSpeed);
     maxSpeed = fabs(maxSpeed);
-    targetDistance = fabs(targetDistance);
+
 
     // Sets the acceleration rate to a high number if zero
     if (accRate == 0)

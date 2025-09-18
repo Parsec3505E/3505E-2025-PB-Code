@@ -16,7 +16,7 @@ public:
     unsigned long int defaultStoppingTime = 5000;
 
     float defaultGyroMargin = 2.0; 
-    float deflaultMargin = 0.1;
+    float defaultMargin = 0.1;
 
     float wheelDiam = 3.25;
 
@@ -59,8 +59,8 @@ public:
 
     // functions for autonomus routines
     float motionProfiling(float minSpeed, float maxSpeed, float accRate, float deccRate, float targetDistance, float currentDistance, float time, bool accelTime, bool shouldStop, float margin);
-    void turnGyroRelative(float minSpeed = NOTHING, float maxSpeed = NOTHING,, float angle, float accRate = NOTHING, float decRate = NOTHING, bool shouldStop = true, unsigned long int stoppingTime = NOTHING, float margin = NOTHING);
-    void turnGyroAbsolute(float minSpeed = NOTHING, float maxSpeed = NOTHING,, float angle, float accRate = NOTHING, float decRate = NOTHING, bool shouldStop = true, unsigned long int stoppingTime = NOTHING, float margin = NOTHING);
+    void turnGyroRelative(float minSpeed = NOTHING, float maxSpeed = NOTHING, float angle, float accRate = NOTHING, float decRate = NOTHING, bool shouldStop = true, unsigned long int stoppingTime = NOTHING, float margin = NOTHING);
+    void turnGyroAbsolute(float minSpeed = NOTHING, float maxSpeed = NOTHING, float angle, float accRate = NOTHING, float decRate = NOTHING, bool shouldStop = true, unsigned long int stoppingTime = NOTHING, float margin = NOTHING);
 
     // miscellaneous functions
     void setDriveSpeed(float leftSpeed, float rightSpeed);
