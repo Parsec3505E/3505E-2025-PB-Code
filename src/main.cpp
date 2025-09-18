@@ -1,6 +1,7 @@
 #include "main.h"
 
 #include "drivetrain.hpp"
+#include "autonomous.hpp"
 
 Drivetrain drivetrain({-20, 19, -10}, {2, -4, 5}, 13);
 
@@ -73,7 +74,8 @@ void competition_initialize() {
  */
 void autonomous() {
 
-	drive_left.move_relative(1000,100);
+	skills();
+	
 }
 
 /**

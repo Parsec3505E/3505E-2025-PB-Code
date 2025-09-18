@@ -75,9 +75,9 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
     maxSpeed = fabs(maxSpeed);
     minSpeed = fabs(minSpeed);
 
-        // variables used in loop
-        float leftSpeed;
-        float rightSpeed;
+    // variables used in loop
+    float leftSpeed;
+    float rightSpeed;
 
     unsigned long int time = pros::millis();
 
