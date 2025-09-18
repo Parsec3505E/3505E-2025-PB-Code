@@ -393,3 +393,8 @@ float Drivetrain::getRelativeIN(int side)
     float absoluteIN = gearRatio*wheelDiam*M_PI*ticks/300.0;
     return absoluteIN - (side == LEFT ? leftRelativeBase : rightRelativeBase);
 }
+
+float Drivetrain::min2( float num1, float num2)
+{
+    return(num1<num2 ? num1 : num2);
+}
