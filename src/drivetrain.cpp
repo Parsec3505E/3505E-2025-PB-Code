@@ -99,13 +99,13 @@ void Drivetrain::turnGyroRelative(float minSpeed, float maxSpeed, float angle, f
             break;
         }
         // this checks if we have turned past the target angle and if we should not stop immediately
-        else if (fabs(angle) <= fabs(angleDiff(getGyroAngle(), gyroBaseAngle)) && !shouldStop)
+        else if (fabs(angle) <= fabs(angleDiff(getGyroAngle(), startAngle)) && !shouldStop)
         {
             break;
         }
 
         // calculate left and right speeds in proportion to the angle we have turned -- note to reader understand this you must understand the motion profiling function
-        leftSpeed = motionProfiling(minSpeed, maxSpeed, accRate, deccRate, angle, angleDiff(gyroBaseAngle, getGyroAngle()), pros::millis() - time, true, shouldStop, margin);
+        leftSpeed = motionProfiling(minSpeed, maxSpeed, accRate, deccRate, angle, angleDiff(startAngle, getGyroAngle()), pros::millis() - time, true, shouldStop, margin);
         rightSpeed = -leftSpeed;
 
         setDriveSpeed(leftSpeed, rightSpeed);
