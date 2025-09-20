@@ -13,7 +13,7 @@ Drivetrain drivetrain({-20, 19, -10}, {2, -4, 5}, 13);
  * "I was pressed!" and nothing.
  */
 void on_center_button() {}
-}
+
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -22,7 +22,7 @@ void on_center_button() {}
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-pros::lcd::initialize();
+	pros::lcd::initialize();
 	
 	// All setup before the program and auton selector goes here
 	if (controlsReversed)
@@ -34,7 +34,6 @@ pros::lcd::initialize();
 	drivetrain.setDriveSpeed(0, 0);
 }
 
-}
 
 /**
  * Runs while the robot is in the disabled state of Field Management System or
