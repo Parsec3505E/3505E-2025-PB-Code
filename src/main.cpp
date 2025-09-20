@@ -29,15 +29,18 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
-	pros::lcd::register_btn1_cb(on_center_button);
+pros::lcd::initialize();
+	
+	// All setup before the program and auton selector goes here
+	if (controlsReversed)
+	{
+		drivetrain.controllerReversed = true;
+	}
 
+	// Sets default positions
+	drivetrain.setDriveSpeed(0, 0);
+}
 
-	//simple move stuff
-
-	pros::Motor drive_left (11);
-	pros::Motor drive_right (12, true); //true reverses the motor
 }
 
 /**
