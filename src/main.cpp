@@ -4,7 +4,7 @@
 #include "autonomous.hpp"
 
 Drivetrain drivetrain({-20, 19, -10}, {2, -4, 5}, 13);
-
+Intake intake(-12, 'C');
 
 /**
  * A callback function for LLEMU's center button.
@@ -32,6 +32,7 @@ void initialize() {
 
 	// Sets default positions
 	drivetrain.setDriveSpeed(0, 0);
+	intake.setSpeed(0);
 }
 
 
@@ -42,6 +43,7 @@ void initialize() {
  */
 void disabled() {
 	drivetrain.setDriveSpeed(0, 0);
+	intake.setSpeed(0);
 }
 
 /**
@@ -92,10 +94,12 @@ void opcontrol() {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	drivetrain.rightSide->set_brake_mode_all(pros::E_MOTOR_BRAKE_BRAKE);
 	drivetrain.leftSide->set_brake_mode_all(pros::E_MOTOR_BRAKE_BRAKE);
+	intake.isrunning = true;
 	
 	while (true)
 	{
 		drivetrain.updateDrivetrain(master);
+		intake.updateIntake(master);
 		pros::delay(20);
 	}
 }

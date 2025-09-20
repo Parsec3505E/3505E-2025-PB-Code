@@ -11,7 +11,7 @@ class Intake
         bool isRunning = false;
         
         // Intake Setup
-        Intake(int intakePort;
+        Intake(int intakePort);
         ~Intake();
 
         // Functions for driver control
