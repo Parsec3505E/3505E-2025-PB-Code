@@ -10,7 +10,6 @@ Intake::Intake(int intakePort)
 // Intake destructor to delete all pointers
 Intake::~Intake()
 {
-    // Deletes all pointers for memory safety
     delete this->intakeMotor;
 }
 
